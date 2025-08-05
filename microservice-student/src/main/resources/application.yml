@@ -1,0 +1,7 @@
+#spring.application.name=microservice-student
+spring:
+  application:
+    name: msvc-student
+  config:
+    import: optional:configserver:http://localhost:8888
+    #-> ruta donde se encuentra el config server (lo coloco provicional para evitar errores)
