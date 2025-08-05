@@ -1,0 +1,11 @@
+#spring.application.name=microservice.eureka
+
+#NOMBRE DEL MICROSERVICIO
+spring:
+  application:
+    name: msvc-eureka
+  ## Configuraci�n provicional del config server (Aun no se ha configurado el microservicio config)
+  config:
+    import: optional:configserver:http://localhost:8888
+    #-> ruta donde se encuentra el config server (lo coloco provicional para evitar errores)
+
