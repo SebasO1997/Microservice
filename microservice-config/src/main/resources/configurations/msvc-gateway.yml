@@ -1,0 +1,28 @@
+eureka:
+  client:
+    register-with-eureka: false
+
+server:
+  port: 8080
+  # -> microservicio siempre corre en 8080 y es donde se realizan las peticiones
+
+spring:
+  application:
+    name: msvc-gateway
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
+          routes:
+            - id: students
+              uri: http://localhost:8090 # Url donde el gateway REDIRIGIR CUANDO SE HAGA UNA PETICION AL SERVICIO DE STUDENT
+              predicates:
+                - Path=/api/student/**
+            - id: courses
+              uri: http://localhost:9090 # Url donde el gateway REDIRIGIR CUANDO SE HAGA UNA PETICION AL SERVICIO DE COURSE
+              predicates:
+                - Path=/api/course/**
+

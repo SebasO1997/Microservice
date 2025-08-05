@@ -1,0 +1,23 @@
+
+#CONFIGURACION DEL PUERTO
+server:
+  port: 8761
+  #-> puerto por defecto donde funciona eureka
+
+
+#NOMBRE DEL MICROSERVICIO
+spring:
+  application:
+    name: msvc-eureka
+
+
+#CONFIGURACION DEL SERVIDOR EUREKA PARA PODER CONECTAR LOS OTROS MICROSERVICIOS
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false # Le indica a eureka que no se registre dentro de si mismo, ya que por defecto lo hace           # ^
+    fetch-registry: false # Le indica a eureka que no se registre dentro de si mismo, ya que por defecto lo hace                 # |
+    serverUrl:                                                                                                                  # |
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ # server.port -> path donde va a funcionar el servidor de eureka(el de arriba  |)
+

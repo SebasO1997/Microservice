@@ -1,0 +1,25 @@
+#spring.application.name=microservice-config
+
+server:
+  port: 8888
+
+
+
+spring:
+  profiles:
+    active: native
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/configurations
+
+
+#eureka:
+#  instance:
+#    hostname: localhost
+#  client:
+#    service-url: http://localhost:8761/eureka
+
