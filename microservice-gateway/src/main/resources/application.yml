@@ -1,0 +1,10 @@
+#spring.application.name=microservice-gateway
+
+
+spring:
+  application:
+    name: msvc-gateway
+  config:
+    import: optional:configserver:http://localhost:8888
+
+
